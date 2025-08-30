@@ -139,7 +139,6 @@ Khánh không khóc. Cậu không tham gia tìm kiếm hay chôn cất. Cậu ch
       content: `Cuộc chiến vẫn tiếp diễn. Khánh, từ một tân binh, đã trở thành một người lính dạn dày kinh nghiệm. Cậu mang theo hình bóng của Nam trong mỗi trận đánh. Với Khánh, Nam không chết – anh sống trong từng trận đánh, trong từng nhịp tim, như một lời nhắc nhở và một nguồn sức mạnh vô hình. 
 Khánh mang theo chiếc hộp “kho báu” chứa đựng mọi kỷ vật của Nam đi mọi nơi. Mỗi lần đi qua một vùng đất mới, cậu lại nhặt nhạnh vài vật nhỏ làm kỷ niệm, coi như ghi dấu thêm một mảnh đời của hai người. Hộp kho báu giờ đây chứa đầy ký ức và kỷ niệm của cả Nam và Khánh. Nó dần trở thành cuốn nhật ký thầm lặng, lưu giữ mọi thứ của cả hai người. 
 Có lần, Khánh gặp lại bà cụ bán hộp phấn mà Nam từng nhắc. Chỉ vài câu đối thoại, bà nhận ra ngay cậu chính là “chàng hậu phương” của đứa nhỏ hay mua phấn cho bà. Khánh thoáng sững người, nhưng rồi chỉ mỉm cười lảng đi, nói Nam hiện đóng ở chiến khu khác, hai đứa vẫn còn hạnh phúc lắm. Anh mua ủng hộ bà một hộp phấn, lặng lẽ cất vào chiếc hộp kho báu.
-
 Chiến dịch Tây Nguyên (Tháng 3/1975): Khánh cùng đơn vị tham gia mở màn cho cuộc Tổng tiến công và nổi dậy Mùa Xuân 1975. Những trận đánh ở Buôn Ma Thuột đã cho cậu thấy thế và lực của ta đã nghiêng hẳn về ta. Trong ánh lửa chiến trường, Khánh nghe thấy như có giọng Nam thì thầm: “Chúng ta sắp đến gần rồi, Khánh ạ.”
 Chiến dịch Huế - Đà Nẵng (Cuối tháng 3/1975): Đơn vị của Khánh hành quân thần tốc, tham gia giải phóng các thành phố lớn ở miền Trung. Mỗi tấc đất quê hương được giải phóng, cậu lại nghĩ đến Nam, tự hỏi liệu anh có đang mỉm cười nơi nào đó không.
 Chiến dịch Hồ Chí Minh (Tháng 4/1975): Khánh là một trong những người lính tiến về Sài Gòn trong những ngày cuối cùng của cuộc chiến. Không khí hừng hực, cờ giải phóng bay phấp phới, người dân ùa ra reo hò, biển người hừng hực khí thế.
@@ -174,7 +173,6 @@ Khánh thì thầm tiếp, giọng lạc đi vì nghẹn:
 “Anh còn chưa nói một cách trọn vẹn trước mặt em, nên không tính đâu. Anh nợ em ba chữ đó, nợ từ khi còn sống. Vậy thì em sẽ cứ chờ, cho đến ngày nào đó em nghe được chính anh nói. Trước lúc đó, em sẽ chẳng thể yêu thêm một ai khác đâu, Nam à.” 
 Một lúc sau, có vẻ đã kiệt sức sau khi khóc quá nhiều, Khánh ngủ thiếp đi ngay bên mộ. Trong mơ, cậu thấy Nam mặc quân phục, sáng chói như một mảnh trời xanh. Nam bước đến, đặt tay lên vai Khánh, nụ cười hiền hòa, ánh mắt chan chứa:
 “Chúc mừng hòa bình. Em làm tốt lắm. Hãy sống tốt nhé, anh sẽ luôn bên em.”
-
 Khánh bật khóc, muốn ôm chặt lấy Nam, nhưng chỉ có khoảng không vô tận. Khi tỉnh dậy, sương sớm giăng mờ. Cậu chợt nhận ra đôi mắt mình ướt đẫm, nhưng tim lại ấm áp lạ thường.
 Khánh đứng dậy, chỉnh lại quân phục, nghiêm người chào một lần cuối. Cậu biết, từ nay sẽ mang theo tình yêu của Nam trong từng nhịp thở, từng bước đi, cho đến hết cuộc đời.
 Khánh sẽ không bao giờ quên đi tình yêu dành cho Nam. Cậu sẽ bước tiếp, thật hạnh phúc, thật vững chãi, mang theo cả tình yêu và lý tưởng của Nam trong trái tim mình, cho đến hết cuộc đời.
