@@ -1,3 +1,4 @@
+import Comments from '@/components/comment'
 import StoryFooter from '@/components/story-footer'
 import StoryHeader from '@/components/story-header'
 import StoryPart from '@/components/story-part'
@@ -44,6 +45,7 @@ export default function Story() {
           </div>
 
           <StoryFooter videoSrc={story.videoSrc} />
+          <Comments />
         </main>
       </div>
     </div>

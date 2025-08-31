@@ -15,6 +15,7 @@ import {
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 
 // Định nghĩa kiểu dữ liệu cho bình luận và trả lời
 interface CommentData {
@@ -34,6 +35,7 @@ export default function CommentItem({ comment }: CommentItemProps) {
   const [replyName, setReplyName] = useState('')
   const [replyText, setReplyText] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState('')
 
   // Lắng nghe các câu trả lời (replies) của bình luận này
   useEffect(() => {
@@ -54,56 +56,71 @@ export default function CommentItem({ comment }: CommentItemProps) {
   // Hàm xử lý khi gửi một câu trả lời
   const handleReplySubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (replyText.trim() === '' || replyName.trim() === '') return
 
+    // KIỂM TRA TÊN VÀ ĐẶT TÊN MẶC ĐỊNH NẾU CẦN
+    const finalReplyName = replyName.trim() === '' ? 'Ẩn danh' : replyName
+
+    // Chỉ kiểm tra nội dung bình luận
+    if (replyText.trim() === '') {
+      setError('Vui lòng nhập nội dung bình luận.')
+      return
+    }
+    setError('')
     setIsLoading(true)
-    await addDoc(collection(db, 'comments', comment.id, 'replies'), {
-      name: replyName,
-      text: replyText,
-      createdAt: serverTimestamp()
-    })
-    setReplyText('')
-    setShowReplyForm(false)
-    setIsLoading(false)
+
+    try {
+      await addDoc(collection(db, 'comments', comment.id, 'replies'), {
+        name: finalReplyName,
+        text: replyText,
+        createdAt: serverTimestamp()
+      })
+      setReplyText('')
+      setReplyName('')
+      setShowReplyForm(false)
+    } catch (err) {
+      setError('Gửi trả lời thất bại, vui lòng thử lại.')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
     <div className='flex items-start space-x-4'>
       <Avatar>
-        <AvatarFallback className='bg-gray-600 text-gray-200'>
+        <AvatarFallback className='bg-[#c8ab84] text-[#856244]'>
           {comment.name.charAt(0).toUpperCase()}
         </AvatarFallback>
       </Avatar>
       <div className='flex-1'>
-        <p className='font-bold text-gray-100'>{comment.name}</p>
-        <p className='text-gray-300 whitespace-pre-wrap'>{comment.text}</p>
+        <p className='font-bold text-[#c19671]'>{comment.name}</p>
+        <p className='text-[#684d36] whitespace-pre-wrap'>{comment.text}</p>
         <div className='flex items-center space-x-4'>
-          <p className='text-xs text-gray-500 mt-1'>
+          <p className='text-xs text-[#58412d] mt-1'>
             {comment.createdAt?.toDate().toLocaleDateString('vi-VN')}
           </p>
           <Button
             variant='link'
-            className='text-xs p-0 h-auto text-gray-400'
+            className='text-xs p-0 h-auto text-[#6b4f36]'
             onClick={() => setShowReplyForm(!showReplyForm)}>
             Trả lời
           </Button>
         </div>
 
         {/* Hiển thị các câu trả lời */}
-        <div className='mt-4 space-y-4 pl-6 border-l-2 border-gray-700/50'>
+        <div className='mt-4 space-y-4 pl-6 border-l-2 border-[#604731]'>
           {replies.map(reply => (
             <div key={reply.id} className='flex items-start space-x-3'>
               <Avatar className='w-8 h-8'>
-                <AvatarFallback className='bg-gray-700 text-gray-300 text-xs'>
+                <AvatarFallback className='bg-[#c8ab84] text-[#856244] text-xs'>
                   {reply.name.charAt(0).toUpperCase()}
                 </AvatarFallback>
               </Avatar>
               <div className='flex-1'>
-                <p className='font-bold text-sm text-gray-200'>{reply.name}</p>
-                <p className='text-gray-400 text-sm whitespace-pre-wrap'>
+                <p className='font-bold text-sm text-[#684d36]'>{reply.name}</p>
+                <p className='text-[#684d36] text-sm whitespace-pre-wrap'>
                   {reply.text}
                 </p>
-                <p className='text-xs text-gray-500 mt-1'>
+                <p className='text-xs text-[#58412d] mt-1'>
                   {reply.createdAt?.toDate().toLocaleDateString('vi-VN')}
                 </p>
               </div>
@@ -118,14 +135,16 @@ export default function CommentItem({ comment }: CommentItemProps) {
               placeholder='Tên của bạn...'
               value={replyName}
               onChange={e => setReplyName(e.target.value)}
-              className='bg-black/30 text-sm border-gray-600 text-gray-200 placeholder:text-gray-500 focus:ring-gray-500'
+              className='border-[#c8ab84] text-[#856244] placeholder:text-[#856244] focus:ring-[#856244]'
             />
-            <Input
+            <Textarea
               placeholder={`Trả lời ${comment.name}...`}
               value={replyText}
               onChange={e => setReplyText(e.target.value)}
-              className='bg-black/30 text-sm border-gray-600 text-gray-200 placeholder:text-gray-500 focus:ring-gray-500'
+              className='border-[#c8ab84] text-[#856244] placeholder:text-[#856244] focus:ring-[#856244]'
             />
+            {error && <p className='text-red-400 text-sm'>{error}</p>}
+
             <Button type='submit' size='sm' disabled={isLoading}>
               {isLoading ? 'Đang gửi...' : 'Gửi'}
             </Button>

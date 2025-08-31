@@ -17,6 +17,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import CommentItem from '@/components/comment-item'
+import { Textarea } from '@/components/ui/textarea'
 
 // Định nghĩa kiểu dữ liệu cho một bình luận
 interface Comment {
@@ -50,15 +51,19 @@ export default function Comments() {
   // Hàm xử lý khi người dùng gửi bình luận GỐC
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (newComment.trim() === '' || newName.trim() === '') {
-      setError('Vui lòng nhập tên và nội dung bình luận.')
+    // KIỂM TRA TÊN VÀ ĐẶT TÊN MẶC ĐỊNH NẾU CẦN
+    const finalName = newName.trim() === '' ? 'Ẩn danh' : newName
+
+    // Chỉ kiểm tra nội dung bình luận
+    if (newComment.trim() === '') {
+      setError('Vui lòng nhập nội dung bình luận.')
       return
     }
     setError('')
     setIsLoading(true)
     try {
       await addDoc(collection(db, 'comments'), {
-        name: newName,
+        name: finalName,
         text: newComment,
         createdAt: serverTimestamp()
       })
@@ -74,8 +79,26 @@ export default function Comments() {
   return (
     <Card className='mt-16 md:mt-24 pt-6 bg-transparent border-none shadow-none'>
       <CardHeader className='px-0'>
-        <CardTitle className='font-playfair text-3xl text-gray-200'>
-          Để Lại Lời Nhắn
+        <CardTitle className='font-momo text-sm md:text-base text-[#856244] italic'>
+          Tí lời ngỏ hen: Vì quá thích hình ảnh hai anh trong quân phục cũng như
+          câu chuyện trong concert Sao Nhập Ngũ đã chạm tới tui. Sau đó lại còn
+          nghe thêm phần song ca Còn gì đẹp hơn của Nam và Hùng, lời ca của nó
+          vừa thơ, vừa đẹp, vừa đau mà kiểu không lụy, đau kiểu bi tráng á.{' '}
+          <br />
+          Xong cái tui có cảm hứng muốn làm một clip nhỏ lồng ghép hình ảnh của
+          Nam Khánh để phù hợp với tính chất bài hát. <br />
+          Mà lúc đó có mí bà hay viết đoạn ngắn trên thread nói việc Nam đi xa
+          mua đồ về cho Khánh ở hậu phương á. Cái trong quá trình vừa làm vid
+          vừa tự des ảnh cho phù hợp đồ, cái tui nghĩ ra cả một câu chuyện dài
+          liên kết mọi thứ, nên mới viết nên truyện này nè. <br />
+          Mọi thứ đều do tui tự tay làm — từ card, web, truyện cho đến video,
+          thú thật des là tui mò tự học lỏm chứ không có chuyên môn gì cả ạ. Nên
+          nếu có gì sơ sót, mong mọi người hoan hỉ nha. Hai nhân vật này chỉ tồn
+          tại trong truyện thôi, tui không hề có ý trù ai hết nha. <br /> Cảm ơn
+          mọi người đã đọc. Nếu thấy có điều gì muốn góp ý, hoặc đơn giản là một
+          lời động viên, cứ comment bên dưới nha. Biết đâu sau này tui sẽ nghĩ
+          thêm vài câu chuyện khác của hai người trong những hoàn cảnh khác. Ai
+          có concept hay ý tưởng thì hú tui liền nha! 💖
         </CardTitle>
       </CardHeader>
       <CardContent className='px-0'>
@@ -84,27 +107,27 @@ export default function Comments() {
             placeholder='Tên của bạn...'
             value={newName}
             onChange={e => setNewName(e.target.value)}
-            className='bg-black/20 border-gray-600 text-gray-200 placeholder:text-gray-400 focus:ring-gray-500'
+            className='border-[#c8ab84] text-[#856244] placeholder:text-[#856244] focus:ring-[#856244]'
           />
-          <Input
+          <Textarea
             placeholder='Viết bình luận của bạn tại đây...'
             value={newComment}
             onChange={e => setNewComment(e.target.value)}
-            className='bg-black/20 border-gray-600 text-gray-200 placeholder:text-gray-400 focus:ring-gray-500'
+            className='h-36 border-[#c8ab84] text-[#856244] placeholder:text-[#856244] focus:ring-[#856244]'
           />
           {error && <p className='text-red-400 text-sm'>{error}</p>}
           <Button
             type='submit'
             disabled={isLoading}
-            className='bg-gray-200 text-black hover:bg-white'>
+            className='bg-transparent border border-[#856244] text-[#856244] hover:bg-[#c8ab84] hover:text-white'>
             {isLoading ? 'Đang gửi...' : 'Gửi Bình Luận'}
           </Button>
         </form>
 
-        <Separator className='my-8 bg-gray-700/50' />
+        <Separator className='my-8 bg-[#856244]' />
 
         <div className='space-y-6'>
-          <h3 className='font-playfair text-2xl text-gray-200'>
+          <h3 className='font-playfair text-2xl text-[#856244]'>
             {comments.length} Bình Luận
           </h3>
           {comments.map(comment => (

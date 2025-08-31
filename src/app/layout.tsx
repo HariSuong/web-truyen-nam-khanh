@@ -5,13 +5,13 @@ import './globals.css'
 // Khởi tạo font Inter cho chữ thường
 const davidLibre = David_Libre({
   subsets: ['latin'],
-  variable: '--font-mono', // Tạo biến CSS
+  variable: '--font-david-libre', // Tạo biến CSS
   weight: ['400', '700']
 })
 // Khởi tạo font Playfair Display cho tiêu đề và nội dung truyện
 const playfair = Playfair_Display({
   subsets: ['latin'],
-  variable: '--font-sans', // Tạo biến CSS
+  variable: '--font-playfair', // Tạo biến CSS
   weight: ['400', '700']
 })
 export const metadata: Metadata = {

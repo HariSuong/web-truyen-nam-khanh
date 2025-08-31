@@ -17,8 +17,8 @@ export default function StoryFooter({ videoSrc }: StoryFooterProps) {
         />
       </div>
       <div className='font-sans text-center text-xl font-bold text-amber-800 mb-8 italic'>
-        &quot;Hòa bình rồi, Khánh à. Em phải sống thật vui nhé. Vui cho cả phần
-        của anh nữa.&quot;
+        &quot;Chúc mừng hòa bình. Em làm tốt lắm. Hãy sống tốt nhé, anh sẽ luôn
+        bên em.&quot;
       </div>
       <div className='w-full rounded-lg flex items-center justify-center shadow-2xl'>
         <video
