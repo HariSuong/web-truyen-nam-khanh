@@ -13,9 +13,10 @@ import {
   Timestamp
 } from 'firebase/firestore'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Button } from '@/components/ui/button'
+
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { Button } from '@/components/ui/button'
 
 // Định nghĩa kiểu dữ liệu cho bình luận và trả lời
 interface CommentData {
