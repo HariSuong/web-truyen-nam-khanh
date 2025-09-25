@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, David_Libre } from 'next/font/google'
+import { ThemeProvider } from '@/components/theme-provider'
+import { Suspense } from 'react'
 import './globals.css'
 
 // Khởi tạo font Inter cho chữ thường
@@ -26,10 +28,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       <body
         className={`${playfair.variable} ${davidLibre.variable} antialiased`}>
-        {children}
+        <Suspense fallback={null}>
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='dark'
+            enableSystem
+            disableTransitionOnChange>
+            {children}
+          </ThemeProvider>
+        </Suspense>
       </body>
     </html>
   )

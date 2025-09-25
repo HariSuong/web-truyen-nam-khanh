@@ -1,13 +1,23 @@
-import Story from '@/components/story'
+import { Footer } from '@/components/footer'
+import { Header } from '@/components/header'
+import { HeroSection } from '@/components/hero-section'
+import { LatestPosts } from '@/components/latest-post'
 
 export default function Home() {
   return (
     <>
-      <Story />
+      {/* <Story /> */}
 
-      {/* Phần video và kết luận ở đây */}
+      <div className='min-h-screen bg-background'>
+        <Header />
 
-      {/* <QRCodeGenerator /> */}
+        <main className='flex justify-between items-center flex-1 flex-col'>
+          <HeroSection />
+          <LatestPosts />
+        </main>
+
+        <Footer />
+      </div>
     </>
   )
 }
